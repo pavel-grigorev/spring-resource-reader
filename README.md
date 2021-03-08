@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.thepavel/spring-resource-reader/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.thepavel/spring-resource-reader)
+
 # Resource Reader for Spring
 
 This is a resource reader tool with automatic content conversion and declarative API. It supports the following types out-of-the-box:
@@ -71,7 +73,21 @@ Usage is similar to `@ComponentScan`. This configuration will scan from the pack
 
 # Adding to your project
 
-*Coming soon...*
+Gradle:
+```
+dependencies {
+  implementation 'org.thepavel:spring-resource-reader:1.0.0'
+}
+```
+
+Maven:
+```
+<dependency>
+  <groupId>org.thepavel</groupId>
+  <artifactId>spring-resource-reader</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 
 # Resource location
 
