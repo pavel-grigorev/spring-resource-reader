@@ -76,7 +76,7 @@ Usage is similar to `@ComponentScan`. This configuration will scan from the pack
 Gradle:
 ```
 dependencies {
-  implementation 'org.thepavel:spring-resource-reader:1.0.2'
+  implementation 'org.thepavel:spring-resource-reader:1.0.3'
 }
 ```
 
@@ -85,7 +85,7 @@ Maven:
 <dependency>
   <groupId>org.thepavel</groupId>
   <artifactId>spring-resource-reader</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 
