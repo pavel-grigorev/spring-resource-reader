@@ -2,7 +2,7 @@
 
 # Resource Reader for Spring
 
-This is a resource reader tool with automatic content conversion and declarative API. It supports the following types out-of-the-box:
+This is a declarative resource reader with the resource content auto-conversion capabilities. It supports the following types out-of-the-box:
 
 - `File`
 - `InputStream`
@@ -59,7 +59,7 @@ public interface TemplateProvider {
 }
 ```
 
-The tool will create a proxy bean for an interface if there is `@ResourceReader` on it. To make it work, add the `@ResourceReaderScan` annotation to JavaConfig:
+The tool will create a proxy bean for an interface decorated with `@ResourceReader`. To make it work, add the `@ResourceReaderScan` annotation to a java configuration:
 
 ```java
 @Configuration
@@ -124,7 +124,7 @@ public interface TemplateProvider {
 }
 ```
 
-If location is not defined by an annotation and the method has exactly one parameter and it is of type `String` then the resource location is taken from the parameter value:
+If the location is not defined by an annotation and the method has exactly one parameter and it is of type `String` then the resource location is taken from the parameter value:
 
 ```java
 @ResourceReader
@@ -223,7 +223,7 @@ public interface UserProvider {
 - If Jackson is on classpath then it will be used to read the JSON.
 - Otherwise `IllegalStateException` will be thrown.
 
-If both Gson and Jackson are on classpath then Gson will be used. To force the framework to use Jackson, add the following argument:
+If both Gson and Jackson are on classpath then Gson will be used. To force the framework to use Jackson, set the `deserializer` annotation argument:
 
 ```java
 @ResourceReader
@@ -234,7 +234,7 @@ public interface UserProvider {
 }
 ```
 
-To configure the Gson parser, implement `Configurator<GsonBuilder>` and add the following declaration:
+To configure the Gson parser, build a bean implementing `Configurator<GsonBuilder>` and add the `@GsonBuilderConfigurator` declaration:
 
 ```java
 @ResourceReader
@@ -246,7 +246,7 @@ public interface UserProvider {
 }
 ```
 
-"userDeserializer" is the bean name:
+`"userDeserializer"` is the name of the bean:
 
 ```java
 @Component
@@ -268,7 +268,7 @@ public class UserDeserializer implements JsonDeserializer<User>, Configurator<Gs
 }
 ```
 
-To configure the Jackson parser, implement `Configurator<ObjectMapper>` and add the following declaration:
+To configure the Jackson parser, build a bean implementing `Configurator<ObjectMapper>` and add the `@JacksonMapperConfigurator` declaration:
 
 ```java
 @ResourceReader
@@ -296,7 +296,7 @@ public interface SettingsProvider {
 - If Jackson is on classpath then it will be used to read the XML.
 - Otherwise `IllegalStateException` will be thrown.
 
-To configure the Jackson parser, implement `Configurator<XmlMapper>` and add the following declaration:
+To configure the Jackson parser, build a bean implementing `Configurator<XmlMapper>` and add the `@JacksonMapperConfigurator` declaration:
 
 ```java
 @ResourceReader
