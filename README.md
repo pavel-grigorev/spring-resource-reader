@@ -2,7 +2,7 @@
 
 # Resource Reader for Spring
 
-This is a declarative resource reader with the resource content auto-conversion capabilities. It supports the following types out-of-the-box:
+This tool is a declarative resource reader with the content auto-conversion capabilities. It supports the following types out-of-the-box:
 
 - `File`
 - `InputStream`
@@ -124,7 +124,7 @@ public interface TemplateProvider {
 }
 ```
 
-If the location is not defined by an annotation and the method has exactly one parameter and it is of type `String` then the resource location is taken from the parameter value:
+If the location is not specified by an annotation and the method has exactly one parameter and it is of type `String` then the resource location is taken from the parameter value:
 
 ```java
 @ResourceReader
