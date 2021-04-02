@@ -89,6 +89,10 @@ Maven:
 </dependency>
 ```
 
+# Prerequisites
+
+Requires Spring `5.2.0+`.
+
 # Resource location
 
 Resource location can be specified by one of the following:
